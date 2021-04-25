@@ -12,19 +12,19 @@ URI = os.getenv("LINE_REDIRECT_URI")
 lotify = Client(client_id=CLIENT_ID, client_secret=SECRET, redirect_uri=URI)
 
 
-@app.route("/")
+@app.route("/asbhdbskadbhabdjakd")
 def home():
     link = lotify.get_auth_link(state=uuid.uuid4())
     return render_template("notify_index.html", auth_url=link)
 
 
-@app.route("/callback")
+@app.route("/asbhdbskadbhabdjakd/callback")
 def confirm():
     token = lotify.get_access_token(code=request.args.get("code"))
     return render_template("notify_confirm.html", token=token)
 
 
-@app.route("/notify/send", methods=["POST"])
+@app.route("/asbhdbskadbhabdjakd/notify/send", methods=["POST"])
 def send():
     payload = request.get_json()
     response = lotify.send_message(
@@ -33,7 +33,7 @@ def send():
     return jsonify(result=response.get("message")), response.get("status")
 
 
-@app.route("/notify/send/sticker", methods=["POST"])
+@app.route("/asbhdbskadbhabdjakd/notify/send/sticker", methods=["POST"])
 def send_sticker():
     payload = request.get_json()
     response = lotify.send_message_with_sticker(
@@ -45,7 +45,7 @@ def send_sticker():
     return jsonify(result=response.get("message")), response.get("status")
 
 
-@app.route("/notify/send/url", methods=["POST"])
+@app.route("/asbhdbskadbhabdjakd/notify/send/url", methods=["POST"])
 def send_url():
     payload = request.get_json()
     response = lotify.send_message_with_image_url(
@@ -57,7 +57,7 @@ def send_url():
     return jsonify(result=response.get("message")), response.get("status")
 
 
-@app.route("/notify/send/path", methods=["POST"])
+@app.route("/asbhdbskadbhabdjakd/notify/send/path", methods=["POST"])
 def send_file():
     payload = request.get_json()
     response = lotify.send_message_with_image_file(
@@ -68,7 +68,7 @@ def send_file():
     return jsonify(result=response.get("message")), response.get("status")
 
 
-@app.route("/notify/revoke", methods=["POST"])
+@app.route("/asbhdbskadbhabdjakd/notify/revoke", methods=["POST"])
 def revoke():
     payload = request.get_json()
     response = lotify.revoke(access_token=payload.get("token"))
