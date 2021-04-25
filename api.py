@@ -11,7 +11,7 @@ SECRET = os.getenv("LINE_CLIENT_SECRET")
 URI = os.getenv("LINE_REDIRECT_URI")
 lotify = Client(client_id=CLIENT_ID, client_secret=SECRET, redirect_uri=URI)
 
-
+# trigger
 @app.route("/asbhdbskadbhabdjakd/")
 def home():
     link = lotify.get_auth_link(state=uuid.uuid4())
