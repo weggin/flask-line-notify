@@ -12,7 +12,7 @@ URI = os.getenv("LINE_REDIRECT_URI")
 lotify = Client(client_id=CLIENT_ID, client_secret=SECRET, redirect_uri=URI)
 
 
-@app.route("/asbhdbskadbhabdjakd")
+@app.route("/asbhdbskadbhabdjakd/")
 def home():
     link = lotify.get_auth_link(state=uuid.uuid4())
     return render_template("notify_index.html", auth_url=link)
